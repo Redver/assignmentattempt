@@ -11,7 +11,7 @@ function App() {
           <div>
               <Navigation/>
               <Routes>
-                  <Route path="/" element={<Deck />} />
+                  <Route path="/" element={<About/>} />
                   <Route path="/Deck" component={Deck} />
                   <Route path="/About" component={About} />
               </Routes>

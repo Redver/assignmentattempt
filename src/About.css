@@ -1,0 +1,13 @@
+body {
+    background-color: #bfc3e8;
+}
+
+.about-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-content p {
+    font-size: 16px;
+    color: #333;
+}

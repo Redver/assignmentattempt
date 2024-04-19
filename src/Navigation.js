@@ -4,8 +4,7 @@ import "./Navigation.css";
 
 function Navigation()
 {
-    return
-    (
+    return(
         <nav className="Navbar">
             <ul>
                 <li><Link to="/Deck"></Link></li>
