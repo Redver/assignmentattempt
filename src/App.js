@@ -12,7 +12,6 @@ function App() {
               <Navigation/>
               <Route path="/Deck" component={Deck} />
               <Route path="/About" component={About} />
-
           </div>
 
       </BrowserRouter>
