@@ -23,20 +23,14 @@ function Deck() {
     const handleMouseMove = (e, index) => {
         const card = document.getElementById(`pokemon-card-${index}`);
         const rect = card.getBoundingClientRect();
-        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3; // Calculate tilt based on vertical mouse position
-        const tiltY = (e.clientX - rect.left - rect.width / 2) / 3; // Calculate tilt based on horizontal mouse position
-        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`; // Apply the calculated tilt
-
-        const shadow = card.querySelector('.pokemon-shadow');
-        shadow.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(5px)`; // Adjust the shadow position based on tilt
+        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3;
+        const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
     };
 
     const handleMouseLeave = (index) => {
         const card = document.getElementById(`pokemon-card-${index}`);
-        card.style.transform = 'none'; // Reset the tilt when mouse leaves the card
-
-        const shadow = card.querySelector('.pokemon-shadow');
-        shadow.style.transform = 'none'; // Reset the shadow position
+        card.style.transform = 'none';
     };
 
     return (
@@ -58,7 +52,6 @@ function Deck() {
                             />
                             <p>{capitaliseStart(pokemon.name)}</p>
                         </div>
-                        <div className="pokemon-shadow"></div> {/* Shadow element */}
                     </div>
                 ))}
             </div>

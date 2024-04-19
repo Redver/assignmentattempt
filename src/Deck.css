@@ -13,9 +13,6 @@
     background-color: rgba(228, 170, 222, 0.44);
     border-radius: 5px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.1s;
-    z-index: 1; /* Ensure the card appears above the shadow */
 }
 
 .pokemon-card:hover {
@@ -38,20 +35,7 @@
     font-family: Circular, sans-serif;
 }
 
-.pokemon-shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Make the shadow cover the entire card */
-    height: 100%; /* Make the shadow cover the entire card */
-    background-color: rgba(0, 0, 0, 0.1);
-    transform-origin: center;
-    pointer-events: none;
-    transition: transform 0.1s;
-    z-index: 0; /* Position the shadow behind the card */
-    display: none; /* Hide the shadow by default */
-}
-
-.pokemon-card:hover .pokemon-shadow {
-    display: block; /* Show the shadow when the card is hovered on */
+h2
+{
+    text-align: center;
 }
