@@ -23,10 +23,10 @@ function Deck() {
         const card = document.getElementById(`pokemon-card-${index}`);
         const shadow = document.getElementById(`shadow-${index}`);
         const rect = card.getBoundingClientRect();
-        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3;
-        const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
+        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 5;
+        const tiltY = (e.clientX - rect.left - rect.width / 2) / 5;
         card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-        shadow.style.transform = `translateX(${tiltY * -0.5}px) translateY(${tiltX * 0.5}px)`;
+        shadow.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${tiltY * -0.5}px) translateY(${tiltX * 0.5}px)`;
     };
 
     const handleMouseLeave = (index) => {
@@ -43,17 +43,18 @@ function Deck() {
                 {pokemonList.map((pokemon, index) => (
                     <div
                         key={index}
-                        id={`pokemon-card-${index}`}
-                        className="pokemon-card"
+                        className="pokemon-wrapper"
                         onMouseMove={(e) => handleMouseMove(e, index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <div className="pokemon-content">
-                            <img
-                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
-                                alt={pokemon.name}
-                            />
-                            <p>{capitaliseStart(pokemon.name)}</p>
+                        <div className="pokemon-card" id={`pokemon-card-${index}`}>
+                            <div className="pokemon-content">
+                                <img
+                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
+                                    alt={pokemon.name}
+                                />
+                                <p>{capitaliseStart(pokemon.name)}</p>
+                            </div>
                         </div>
                         <div className="shadow" id={`shadow-${index}`}></div>
                     </div>
