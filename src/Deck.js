@@ -4,6 +4,7 @@ import './Deck.css';
 
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
+    const [selectedPokemon, setSelectedPokemon] = useState(null);
 
     const capitaliseStart = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -38,6 +39,16 @@ function Deck() {
         shadow.style.visibility = 'hidden';
     };
 
+    const handleCardClick = async (pokemon) => {
+        const response = await fetch(pokemon.url);
+        const data = await response.json();
+        setSelectedPokemon(data);
+    };
+
+    const handleClosePopup = () => {
+        setSelectedPokemon(null);
+    };
+
     return (
         <div>
             <h2>Pokedex</h2>
@@ -49,7 +60,7 @@ function Deck() {
                         onMouseMove={(e) => handleMouseMove(e, index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <div className="pokemon-card" id={`pokemon-card-${index}`}>
+                        <div className="pokemon-card" onClick={() => handleCardClick(pokemon)} id={`pokemon-card-${index}`}>
                             <div className="pokemon-content">
                                 <img
                                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
@@ -62,6 +73,47 @@ function Deck() {
                     </div>
                 ))}
             </div>
+            {selectedPokemon && (
+                <div className="popup-overlay" onClick={handleClosePopup}>
+                    <div className="popup-card">
+                        <img
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
+                            alt={selectedPokemon.name}
+                        />
+                        <h3>{capitaliseStart(selectedPokemon.name)}</h3>
+                        <div className="abilities-types-container">
+                            <div className="abilities-list">
+                                <h4>Abilities:</h4>
+                                <ul>
+                                    {selectedPokemon.abilities.map((ability, index) => (
+                                        <li key={index}>{capitaliseStart(ability.ability.name)}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="types-list">
+                                <h4>Type:</h4>
+                                <ul>
+                                    {selectedPokemon.types.map((type, index) => (
+                                        <li key={index}>{capitaliseStart(type.type.name)}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="pokemon-info">
+                            <h4>Stats:</h4>
+                            <ul>
+                                {selectedPokemon.stats.map((stat, index) => (
+                                    <li key={index}>{capitaliseStart(stat.stat.name)}: {stat.base_stat}</li>
+                                ))}
+                            </ul>
+                            <h4>Height:</h4>
+                            <p>{selectedPokemon.height}</p>
+                            <h4>Weight:</h4>
+                            <p>{selectedPokemon.weight}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

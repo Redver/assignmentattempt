@@ -1,5 +1,6 @@
 .pokemon-card:hover {
     transform: translateY(-5px) rotate3d(0, 1, 0, 5deg);
+    z-index: 3;
 }
 
 .pokemon-content {
@@ -33,7 +34,9 @@ h2
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
+    z-index: 1;
 }
+
 
 .pokemon-card {
     position: relative;
@@ -60,4 +63,110 @@ h2
     visibility: hidden;
     z-index: 1;
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-card {
+    position: relative;
+    background-color: #bfbfff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 400px;
+    max-height: 80%;
+    overflow: auto;
+    z-index: 1000;
+    font-family: 'Circular', sans-serif;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.abilities-types-container {
+    display: flex;
+}
+
+.abilities-list,
+.types-list {
+    flex: 1;
+}
+
+.abilities-list ul,
+.types-list ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.popup-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #232323;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.popup-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.popup-card ul li {
+    font-size: 18px;
+    color: #555; /* Dark grey color for list items */
+    margin-bottom: 5px;
+}
+
+.pokemon-info {
+    margin-top: 20px;
+}
+
+.pokemon-info h4 {
+    margin-bottom: 5px;
+}
+
+.pokemon-info ul,
+.pokemon-info p {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.pokemon-info ul li {
+    list-style-type: none;
+}
+
+.popup-card {
+    /* Existing styles */
+    display: flex;
+    flex-direction: column;
+}
+
+.abilities-types-container {
+    display: flex;
+}
+
+.abilities-list,
+.types-list,
+.pokemon-info {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.popup-card img {
+    width: 300px; /* Set the width of the image */
+    height: auto; /* Let the height adjust proportionally */
+    margin-bottom: 20px; /* Add some space below the image */
 }
