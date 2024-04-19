@@ -1,5 +1,6 @@
 body {
     background-color: #c0bfe8;
+    z-index: 1;
 }
 
 .about-content {

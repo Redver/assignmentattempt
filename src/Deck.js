@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './fonts/fonts.css';
 import './Deck.css';
 
-
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
 
@@ -22,15 +21,19 @@ function Deck() {
 
     const handleMouseMove = (e, index) => {
         const card = document.getElementById(`pokemon-card-${index}`);
+        const shadow = document.getElementById(`shadow-${index}`);
         const rect = card.getBoundingClientRect();
         const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3;
         const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
         card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        shadow.style.transform = `translateX(${tiltY * -0.5}px) translateY(${tiltX * 0.5}px)`;
     };
 
     const handleMouseLeave = (index) => {
         const card = document.getElementById(`pokemon-card-${index}`);
+        const shadow = document.getElementById(`shadow-${index}`);
         card.style.transform = 'none';
+        shadow.style.transform = 'none';
     };
 
     return (
@@ -52,6 +55,7 @@ function Deck() {
                             />
                             <p>{capitaliseStart(pokemon.name)}</p>
                         </div>
+                        <div className="shadow" id={`shadow-${index}`}></div>
                     </div>
                 ))}
             </div>
