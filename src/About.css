@@ -1,13 +1,29 @@
 body {
-    background-color: #bfc3e8;
+    background-color: #c0bfe8;
 }
 
 .about-content {
-    text-align: center;
-    margin-top: 20px;
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: justify;
 }
 
 .about-content p {
-    font-size: 16px;
+    font-family: Circular, sans-serif;
+    font-size: 18px;
     color: #333;
+
+}
+
+.about-title {
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title p {
+    font-family: Circular, sans-serif;
+    font-size: 32px;
+    color: #000000;
+
 }

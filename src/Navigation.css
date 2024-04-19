@@ -1,15 +1,13 @@
 .Navbar {
-    background-color: #000;
-    color: #fff;
     font-family: Circular, sans-serif;
     padding: 10px 0;
-    text-align: center;
+    text-align: left;
 }
 
 .Navbar ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 
 .Navbar ul li {
@@ -18,10 +16,17 @@
 }
 
 .Navbar ul li a {
-    color: #fff;
     text-decoration: none;
+    color: #0c0909;
+    font-size: 24px;
 }
 
 .Navbar ul li a:hover {
     text-decoration: underline;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
