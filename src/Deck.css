@@ -4,18 +4,6 @@
     justify-content: center;
 }
 
-.pokemon-card {
-    position: relative;
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #5a7381;
-    background-color: rgba(228, 170, 222, 0.44);
-    border-radius: 5px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
 .pokemon-card:hover {
     transform: translateY(-5px) rotate3d(0, 1, 0, 5deg);
 }
@@ -36,6 +24,19 @@
     font-family: Circular, sans-serif;
 }
 
+.pokemon-card {
+    position: relative;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #5a7381;
+    background-color: rgba(228, 170, 222, 0.44);
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 2; /* Ensure the cards are above the shadows */
+}
+
 .shadow {
     position: absolute;
     top: 0;
@@ -46,7 +47,9 @@
     border-radius: 5px;
     pointer-events: none;
     transition: transform 0.3s ease-in-out;
+    z-index: 1; /* Ensure the shadows are beneath the cards */
 }
+
 
 h2
 {
