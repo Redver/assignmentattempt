@@ -1,4 +1,4 @@
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import Navigation from "./Navigation";
@@ -10,8 +10,11 @@ function App() {
       <BrowserRouter>
           <div>
               <Navigation/>
-              <Route path="/Deck" component={Deck} />
-              <Route path="/About" component={About} />
+              <Routes>
+                  <Route path="/" element={<Deck />} />
+                  <Route path="/Deck" component={Deck} />
+                  <Route path="/About" component={About} />
+              </Routes>
           </div>
 
       </BrowserRouter>
