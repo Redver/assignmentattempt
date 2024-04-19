@@ -7,10 +7,12 @@ function Navigation()
 {
     return(
         <nav className="Navbar">
-            <div className="logo">
-                <img src="/pika.png" alt="Pikachu"/>
-            </div>
             <ul>
+                <li>
+                    <div className="logo">
+                        <img src="/pika.png" alt="Pikachu"/>
+                    </div>
+                </li>
                 <li><Link to="/Deck">Deck</Link></li>
                 <li><Link to="/About">About</Link></li>
             </ul>
