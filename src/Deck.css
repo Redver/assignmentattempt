@@ -1,3 +1,4 @@
+/* Deck.css */
 .pokemon-container {
     display: flex;
     flex-wrap: wrap;
@@ -9,16 +10,11 @@
     margin: 10px;
     padding: 10px;
     border: 1px solid #5a7381;
-    background-color: rgba(228, 170, 222, 0.44);
+    background-color: rgba(107, 116, 193, 0.53);
     border-radius: 5px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    perspective: 1000px;
-}
-
-.pokemon-card:hover {
-    transform: translateY(-10px) rotateY(10deg);
+    transition: transform 0.1s; /* Shorten transition duration for a smoother effect */
 }
 
 .pokemon-card img {

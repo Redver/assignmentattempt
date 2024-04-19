@@ -5,7 +5,10 @@ import './Deck.css';
 
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    const capitaliseStart = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 
     useEffect(() => {
         fetchPokemon();
@@ -17,20 +20,19 @@ function Deck() {
         setPokemonList(data.results);
     };
 
-    const handleMouseEnter = (index) => {
-        setHoveredIndex(index);
+    const handleMouseMove = (e, index) => {
+        console.log('Mouse move event fired');
+        const card = document.getElementById(`pokemon-card-${index}`);
+        const rect = card.getBoundingClientRect();
+        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3;
+        const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
     };
 
-    const handleMouseLeave = () => {
-        setHoveredIndex(null);
-    };
-
-    const handleCardClick = (pokemonName) => {
-        console.log(`Clicked on ${pokemonName}`);
-    };
-
-    const capitalizeFirstLetter = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+    const handleMouseLeave = (index) => {
+        console.log('Mouse leave event fired');
+        const card = document.getElementById(`pokemon-card-${index}`);
+        card.style.transform = 'none';
     };
 
     return (
@@ -40,16 +42,16 @@ function Deck() {
                 {pokemonList.map((pokemon, index) => (
                     <div
                         key={index}
-                        className={`pokemon-card ${hoveredIndex === index ? 'hovered' : ''}`}
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}
-                        onClick={() => handleCardClick(pokemon.name)}
+                        id={`pokemon-card-${index}`}
+                        className="pokemon-card"
+                        onMouseMove={(e) => handleMouseMove(e, index)}
+                        onMouseLeave={() => handleMouseLeave(index)}
                     >
                         <img
                             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
                             alt={pokemon.name}
                         />
-                        <p>{capitalizeFirstLetter(pokemon.name)}</p>
+                        <p>{capitaliseStart(pokemon.name)}</p>
                     </div>
                 ))}
             </div>
