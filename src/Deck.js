@@ -23,10 +23,11 @@ function Deck() {
         const card = document.getElementById(`pokemon-card-${index}`);
         const shadow = document.getElementById(`shadow-${index}`);
         const rect = card.getBoundingClientRect();
-        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 5;
-        const tiltY = (e.clientX - rect.left - rect.width / 2) / 5;
+        const tiltX = (rect.top + rect.height / 2 - e.clientY) / 3;
+        const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
         card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
         shadow.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${tiltY * -0.5}px) translateY(${tiltX * 0.5}px)`;
+        shadow.style.visibility = 'visible';
     };
 
     const handleMouseLeave = (index) => {
@@ -34,6 +35,7 @@ function Deck() {
         const shadow = document.getElementById(`shadow-${index}`);
         card.style.transform = 'none';
         shadow.style.transform = 'none';
+        shadow.style.visibility = 'hidden';
     };
 
     return (

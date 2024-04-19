@@ -32,10 +32,11 @@ h2
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    position: relative; /* Added */
+    position: relative;
 }
 
 .pokemon-card {
+    position: relative;
     width: 200px;
     margin: 10px;
     padding: 10px;
@@ -44,7 +45,7 @@ h2
     border-radius: 5px;
     text-align: center;
     transition: transform 0.1s ease-in-out;
-    z-index: 2; /* Ensure the cards are above the shadows */
+    z-index: 2;
 }
 
 .shadow {
@@ -57,5 +58,6 @@ h2
     border-radius: 5px;
     pointer-events: none;
     transition: transform 0.1s ease-in-out;
-    z-index: 1; /* Ensure the shadows are beneath the cards */
+    visibility: hidden;
+    z-index: 1;
 }
