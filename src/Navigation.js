@@ -13,8 +13,8 @@ function Navigation()
                         <img src="/pika.png" alt="Pikachu"/>
                     </div>
                 </li>
-                <li><Link to="/Deck">Deck</Link></li>
-                <li><Link to="/About">About</Link></li>
+                <li><Link to="/Deck"><span className="text">Deck</span></Link></li>
+                <li><Link to="/About"><span className="text">About</span></Link></li>
             </ul>
         </nav>
     );

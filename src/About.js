@@ -11,10 +11,7 @@ function About() {
                 <p>What is this?</p>
             </div>
             <div className="about-content">
-                <p> This is the About page. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Fusce ultricies fermentum justo, eget elementum urna consectetur et.
-                    Proin ac risus vel magna fermentum consequat sit amet eget tortor.
-                    Phasellus ut semper neque. Ut rhoncus lobortis nisi non suscipit.</p>
+                <p> This is the About page. Here is where I am meant to show a page that I am able to route to use react router, according to the requirements. This page was made before the Deck as I wanted to procrastinate that as it seemed like a harder task than this one, yet I still spent almost 2 hours setting up the react app as the create-react-app command was failing, and I had to make an empty folder called npm in my C drive for some reason than it ran ¯\_(ツ)_/¯. Well anyway it works now so thats cool. </p>
             </div>
         </div>
     );
