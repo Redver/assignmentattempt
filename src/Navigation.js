@@ -1,18 +1,18 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "Navbar.css";
+import "./Navigation.css";
 
 function Navigation()
 {
     return
     (
-        <nav className={Navbar}>
+        <nav className="Navbar">
             <ul>
-                <li><Link to={Deck}></Link></li>
-                <li><Link to={About}></Link></li>
+                <li><Link to="/Deck"></Link></li>
+                <li><Link to="/About"></Link></li>
             </ul>
         </nav>
-    )
+    );
 }
 
 export default Navigation;
