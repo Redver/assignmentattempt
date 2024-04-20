@@ -10,7 +10,10 @@ function Navigation()
             <ul>
                 <li>
                     <div className="logo">
-                        <img src="/pika.png" alt="Pikachu"/>
+                        <img
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/pikachu.png`}
+                            alt="Pikachu"
+                        />
                     </div>
                 </li>
                 <li><Link to="/Deck"><span className="text">Deck</span></Link></li>
