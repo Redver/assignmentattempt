@@ -11,7 +11,7 @@ function Navigation()
                 <li>
                     <div className="logo">
                         <img
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/pikachu.png`}
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png`}
                             alt="Pikachu"
                         />
                     </div>
