@@ -151,3 +151,12 @@ h2{
     max-height: 90%;
     overflow: hidden
 }
+.page-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-buttons {
+    margin: 0 5px;
+}

@@ -5,6 +5,8 @@ import './Deck.css';
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
+    const [limit, setLimit] = useState(20); // Default limit
+    const [offset, setOffset] = useState(0);
 
     const capitaliseStart = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -12,10 +14,10 @@ function Deck() {
 
     useEffect(() => {
         fetchPokemon();
-    }, []);
+    }, [limit, offset]);
 
     const fetchPokemon = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`);
         const data = await response.json();
         setPokemonList(data.results);
     };
@@ -60,10 +62,11 @@ function Deck() {
                         onMouseMove={(e) => handleMouseMove(e, index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <div className="pokemon-card" onClick={() => handleCardClick(pokemon)} id={`pokemon-card-${index}`}>
+                        <div className="pokemon-card" onClick={() => handleCardClick(pokemon)}
+                             id={`pokemon-card-${index}`}>
                             <div className="pokemon-content">
                                 <img
-                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
+                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1 + offset}.png`}
                                     alt={pokemon.name}
                                 />
                                 <p>{capitaliseStart(pokemon.name)}</p>
@@ -107,6 +110,10 @@ function Deck() {
                     </div>
                 </div>
             )}
+            <div className="page-buttons">
+                <button onClick={() => setOffset(offset - limit)} disabled={offset === 0}>Previous</button>
+                <button onClick={() => setOffset(offset + limit)}>Next</button>
+            </div>
         </div>
     );
 }
