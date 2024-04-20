@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './fonts/fonts.css';
-import './Deck.css';
+import React, { useState, useEffect } from "react";
+import "./fonts/fonts.css";
+import "./Deck.css";
 
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
@@ -30,15 +30,15 @@ function Deck() {
         const tiltY = (e.clientX - rect.left - rect.width / 2) / 3;
         card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
         shadow.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${tiltY * -0.5}px) translateY(${tiltX * 0.5}px)`;
-        shadow.style.visibility = 'visible';
+        shadow.style.visibility = "visible";
     };
 
     const handleMouseLeave = (index) => {
         const card = document.getElementById(`pokemon-card-${index}`);
         const shadow = document.getElementById(`shadow-${index}`);
-        card.style.transform = 'none';
-        shadow.style.transform = 'none';
-        shadow.style.visibility = 'hidden';
+        card.style.transform = "none";
+        shadow.style.transform = "none";
+        shadow.style.visibility = "hidden";
     };
 
     const handleCardClick = async (pokemon) => {
@@ -81,11 +81,12 @@ function Deck() {
                     <div className="popup-card">
                         <div className="pokemon-info">
                             <h3>{capitaliseStart(selectedPokemon.name)}</h3>
+                            <div className="pokemon-popup-image">
                             <img
                                 className="pokemon-image"
                                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                                 alt={selectedPokemon.name}
-                            />
+                            /></div>
                             <h4>Abilities:</h4>
                             <ul>
                                 {selectedPokemon.abilities.map((ability, index) => (
