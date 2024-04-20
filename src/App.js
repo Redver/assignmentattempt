@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import Navigation from "./Navigation";
 import Deck from "./Deck";
 import About from "./About";
@@ -6,7 +6,7 @@ import "./fonts/fonts.css";
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div>
                 <Navigation />
                 <Routes>
@@ -15,7 +15,7 @@ function App() {
                     <Route path="/About" element={<About />} />
                 </Routes>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

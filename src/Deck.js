@@ -76,40 +76,33 @@ function Deck() {
             {selectedPokemon && (
                 <div className="popup-overlay" onClick={handleClosePopup}>
                     <div className="popup-card">
-                        <img
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
-                            alt={selectedPokemon.name}
-                        />
-                        <h3>{capitaliseStart(selectedPokemon.name)}</h3>
-                        <div className="abilities-types-container">
-                            <div className="abilities-list">
-                                <h4>Abilities:</h4>
-                                <ul>
-                                    {selectedPokemon.abilities.map((ability, index) => (
-                                        <li key={index}>{capitaliseStart(ability.ability.name)}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="types-list">
-                                <h4>Type:</h4>
-                                <ul>
-                                    {selectedPokemon.types.map((type, index) => (
-                                        <li key={index}>{capitaliseStart(type.type.name)}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
                         <div className="pokemon-info">
+                            <h3>{capitaliseStart(selectedPokemon.name)}</h3>
+                            <img
+                                className="pokemon-image"
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
+                                alt={selectedPokemon.name}
+                            />
+                            <h4>Abilities:</h4>
+                            <ul>
+                                {selectedPokemon.abilities.map((ability, index) => (
+                                    <li key={index}>{capitaliseStart(ability.ability.name)}</li>
+                                ))}
+                            </ul>
+                            <h4>Type:</h4>
+                            <ul>
+                                {selectedPokemon.types.map((type, index) => (
+                                    <li key={index}>{capitaliseStart(type.type.name)}</li>
+                                ))}
+                            </ul>
                             <h4>Stats:</h4>
                             <ul>
                                 {selectedPokemon.stats.map((stat, index) => (
                                     <li key={index}>{capitaliseStart(stat.stat.name)}: {stat.base_stat}</li>
                                 ))}
                             </ul>
-                            <h4>Height:</h4>
-                            <p>{selectedPokemon.height}</p>
-                            <h4>Weight:</h4>
-                            <p>{selectedPokemon.weight}</p>
+                            <p>Height: {selectedPokemon.height}</p>
+                            <p>Weight: {selectedPokemon.weight}</p>
                         </div>
                     </div>
                 </div>
