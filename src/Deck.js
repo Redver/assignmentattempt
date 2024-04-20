@@ -5,7 +5,7 @@ import './Deck.css';
 function Deck() {
     const [pokemonList, setPokemonList] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
-    const [limit, setLimit] = useState(20); 
+    const [limit] = useState(20);
     const [offset, setOffset] = useState(0);
 
     const capitaliseStart = (string) => {

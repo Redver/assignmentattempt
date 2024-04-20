@@ -1,6 +1,7 @@
 {
   "name": "assignmentattempt",
   "version": "0.1.0",
+  "homepage": "https://Redver.github.io/assignmentattempt",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
